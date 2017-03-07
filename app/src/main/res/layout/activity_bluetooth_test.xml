@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ListView
+        android:id="@+id/lvDevices"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    </ListView>
+
+
+    <Button
+        android:id="@+id/btnDis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="查询蓝牙" />
+
+    <Button
+        android:id="@+id/btnSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="scan_around_bluetooth"
+        />
+
+
+    <ToggleButton
+        android:id="@+id/tbtnSwitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textOn="启动蓝牙"
+        android:textOff="关闭蓝牙"
+        />
+
+
+    <Button
+        android:id="@+id/btnExit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="stop_scan" />
+
+
+</LinearLayout>
