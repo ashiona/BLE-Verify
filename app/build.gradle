@@ -17,6 +17,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    applicationVariants.all { variant ->
+        variant.mergedFlavor.versionCode = getVersionCode()
+        variant.outputs.each { output ->
+            output.outputFile = new File(
+                    output.outputFile.parent + "/${variant.buildType.name}",
+                    "BLE_Verify-${variant.buildType.name}-v${variant.versionName}.apk".toLowerCase())
+        }
+    }
+
 }
 
 dependencies {

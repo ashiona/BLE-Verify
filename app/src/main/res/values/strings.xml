@@ -8,7 +8,7 @@
     <string name="nothing">Nothing</string>
 
     <!-- label items -->
-    <string name="sid_desc">SID from QR Code</string>
+    <string name="sid_desc">SID</string>
     <string name="connect">Connect</string>
     <string name="disconnect">Disconnect</string>
     <string name="scan_or_input">Scan or input SID</string>

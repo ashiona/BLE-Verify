@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">BLE-Verify</string>
+
+    <string name="scan_qr_code">扫描二维码</string>
+    <string name="permission_required_toast">需要摄像头权限。</string>
+    <string name="header_scan_record">扫描结果</string>
+    <string name="please_scan_qr_code">请将二维码对准中间的扫描框</string>
+    <string name="nothing">二维码信息为空</string>
+
+    <!-- label items -->
+    <string name="sid_desc">SID:</string>
+    <string name="connect">连接</string>
+    <string name="disconnect">断开连接</string>
+    <string name="scan_or_input">扫描或者输入SID</string>
+    <string name="stop">停止</string>
+    <string name="mac_address">Mac地址:</string>
+    <string name="verify">检测</string>
+    <string name="ble_connecting">BLE 连接</string>
+    <string name="bluetooth_connecting">Bluetooth 连接</string>
+    <string name="please_input_sid">请输入SID</string>
+    <string name="sid_format_error">SID 格式错误</string>
+    <string name="discover_finish">扫描结束</string>
+    <string name="start_discover">开始扫描</string>
+</resources>
