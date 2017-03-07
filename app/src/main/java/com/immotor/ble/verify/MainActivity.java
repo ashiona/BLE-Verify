@@ -67,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
 
     private BluetoothLeDevice mDevice;
 
+    private TextView rssiText;
+
     private boolean isScanning = false;
     private boolean isConnected = false;
     private boolean isBleConnecting = false;
@@ -95,6 +97,8 @@ public class MainActivity extends AppCompatActivity {
         bleResultImg = (ImageView)findViewById(R.id.ble_result_img);
         bluetoothResultImg = (ImageView)findViewById(R.id.bluetooth_result_img);
 
+        rssiText = (TextView)findViewById(R.id.rssi_text);
+
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
         btnConnect = (Button) findViewById(R.id.btn_connect);
@@ -110,9 +114,6 @@ public class MainActivity extends AppCompatActivity {
                     Snackbar.make(activityMain, getString(R.string.sid_format_error), Snackbar.LENGTH_SHORT).show();
                 }
 
-                mBluetoothMacAddress = StringUtils.convertMacAddress(scanText);
-                //mBluetoothMacAddress = "88:C2:55:AB:CC:0A";
-
                 if (isBluetoothConnected()) {
                     bluetoothDisconnect();
                 }
@@ -122,7 +123,6 @@ public class MainActivity extends AppCompatActivity {
                     stopConnecting();
                 }else if (!TextUtils.isEmpty(scanText)) {
                     scanResultString = scanText;
-
                     scanDevice();
                 }
             }
@@ -244,6 +244,7 @@ public class MainActivity extends AppCompatActivity {
         bluetoothResultImg.setVisibility(View.GONE);
         btnConnect.setText(getString(R.string.stop));
         macAddressText.setText(null);
+        rssiText.setText(null);
         setProgressStatus(true);
         isScanning = true;
         ViseBluetooth.getInstance().setScanTimeout(-1).startScan(periodScanCallback);
@@ -277,6 +278,7 @@ public class MainActivity extends AppCompatActivity {
                     String manufacturerDataStr = StringUtils.reverseString2(manufacturerData);
                     if (manufacturerDataStr.equalsIgnoreCase(scanResultString)) {
                         macAddressText.setText(bleMacAddress);
+                        rssiText.setText(getString(R.string.label_rssi)+ bluetoothLeDevice.getRssi()+"dB");
                         connectBleDevice();
                     }
                 }
@@ -368,6 +370,8 @@ public class MainActivity extends AppCompatActivity {
         // 判断是否已经配对
         //获得已配对的远程蓝牙设备的集合
         boolean isPaired = false;
+        String scanText = scanResultText.getText().toString();
+        mBluetoothMacAddress = StringUtils.convertMacAddress(scanText);
         Set<BluetoothDevice> devices = mBluetoothAdapter.getBondedDevices();
         if(devices.size()>0) {
             for (Iterator<BluetoothDevice> it = devices.iterator(); it.hasNext(); ) {

@@ -14,7 +14,9 @@
         android:id="@+id/result_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
         <Button
             android:id="@+id/btn_scan"
@@ -28,7 +30,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@android:color/black"
+            android:textSize="16sp"
             android:text="@string/sid_desc"/>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -79,13 +83,21 @@
 
                 <TextView
                     android:id="@+id/mac_address_text"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:textColor="@android:color/black"
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="16dp"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:text=""/>
+
+                <TextView
+                    android:id="@+id/rssi_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textColor="@android:color/black" />
             </LinearLayout>
 
             <RelativeLayout
